@@ -1,3 +1,8 @@
+export const dynamicParams = true; 
+
+// true: Nextjs statically renders pages on demand for any dynamic routes segments not includedin generateStaticParams
+//false: Nextjs return 404 erroe for any dynamic segment not foundin pre- redered list
+
 export async function generateStaticParams() {
     return [{ id: "1" }, { id: "2" }, { id: "3" }];
 }
