@@ -1,13 +1,11 @@
 "use client"
 
-import { serverSideFunction } from "@/utils/server-utils"
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
-export default function ClientRoute() {
+export const ImageSlider = () => {
     const settings = {
         dots: true,
     };
@@ -28,5 +26,5 @@ export default function ClientRoute() {
                 </div>
             </Slider>
         </div>
-      );
+    );
 }
