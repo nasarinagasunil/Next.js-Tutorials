@@ -1,17 +1,16 @@
 "use client"
 
-import { FormState, createProduct } from "@/actions/products";
+import { FormState, editProduct } from "@/actions/products";
 import { useActionState } from "react";
+import { Product } from "@/app/products-db/page";
 
 
-
-export default function AddProductPage() {
+export function EditProductForm({product}: {product: Product}) {
     const initialState: FormState = {
         errors: {},
     }
-    const [state, formAction, isPending] = useActionState(createProduct, initialState);
-
-    
+    const editProductWithId = editProduct.bind(null, product.id);
+    const [state, formAction, isPending] = useActionState(editProductWithId, initialState);
 
     return (
         <form action= {formAction}  className="p-4 space-y-4 max-w-96">
@@ -22,7 +21,7 @@ export default function AddProductPage() {
                     type="text"
                     className="block w-full p-2 text-black border rounded"
                     name="title"
-                    
+                    defaultValue={product.title}
                 />
             </label>
             {
@@ -36,6 +35,7 @@ export default function AddProductPage() {
                     type="number"
                     className="block w-full p-2 text-black border rounded"
                     name="price"
+                    defaultValue={product.price}
                     
                 />
             </label>
@@ -49,7 +49,7 @@ export default function AddProductPage() {
                 <textarea
                     className="block w-full p-2 text-black border rounded"
                     name="description"
-                    
+                    defaultValue={product.description ?? ""}
                 />
             </label>
             {
