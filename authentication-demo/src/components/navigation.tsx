@@ -18,7 +18,7 @@ export const Navigation = () =>{
                         <SignedIn>
                         {/* <UserButton /> */}
                         <Link href="/user-profile">Profile</Link>
-                        <SignOutButton />
+                            <SignOutButton />
                         </SignedIn>
                     </div>
                 </div>
